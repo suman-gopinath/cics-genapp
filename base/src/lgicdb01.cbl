@@ -137,7 +137,7 @@
       * check commarea length - meets minimum requirement
            MOVE WS-CUSTOMER-LEN        TO WS-REQUIRED-CA-LEN
            ADD WS-CA-HEADERTRAILER-LEN TO WS-REQUIRED-CA-LEN
-      * if less set error return code and return to caller
+      * if less set error return code and return to caller - test
            IF EIBCALEN IS LESS THAN WS-REQUIRED-CA-LEN
              MOVE '98' TO CA-RETURN-CODE
              EXEC CICS RETURN END-EXEC
