@@ -110,6 +110,7 @@ pipeline {
                         env.DBB_BUILD_TYPE = "--fullBuild"
                     rc = sh (returnStatus: true, script: '''#!/bin/sh
                             cd ${WORKSPACE}
+                            rm -rf BUILD-*
                             if [[ $DBB_BUILD_TYPE == *Build ]]
                             then
                                 export DBB_CONF=${WORKSPACE}/${APP_NAME}/dbb-build
@@ -142,9 +143,10 @@ pipeline {
                               export CLIENT_PORT=1234
                               export PATH=/var/gitlab/J17.0_64/bin:$PATH
                               kill -9 $(cat /tmp/lspsocketserver.pid) 2> /dev/null
+                              # FIXME: generate -sfl -sfi with BuildReport.json
                               CMD="zcodescan \
                                 -sfl ${WORKSPACE}/BUILD-${BUILD_NUMBER}/build.${BUILD_NUMBER}/buildList.txt \
-                                -if $PWD/cics-genapp/base\
+                                -if $PWD\
                                 -rf cics-genapp/zcodescan-rules.yaml\
                                 -of ${WORKSPACE}/BUILD-${BUILD_NUMBER}/build.${BUILD_NUMBER}/zcodescan-cics-genapp.yml\
                                 -et sonarqube -ef ${WORKSPACE}/BUILD-${BUILD_NUMBER}/build.${BUILD_NUMBER}/zcodescan-cics-genapp-sonarqube.json"
@@ -157,8 +159,8 @@ pipeline {
                               CMD="/u/jenkins/sonar/sonar-scanner-5.0.0.2966/bin/sonar-scanner \
                                     -Dsonar.projectKey=genapp \
                                     -Dsonar.sources=. \
-                                    -Dsonar.host.url=http://wazi-deploy.rpp.hur.hdclab.intranet.ibm.com:9000\
-                                    -Dsonar.token=sqp_e0a0ccbb520f398f8b7b45cc9d2964ff3807dd36 \
+                                    -Dsonar.host.url=http://wazi-deploy.rpp.hur.hdclab.intranet.ibm.com:9000 \
+                                    -Dsonar.token=sqp_8128509d8e33ddd60479d8838777f1e6d5e16bfc \
                                     -Dsonar.externalIssuesReportPaths=./BUILD-${BUILD_NUMBER}/build.${BUILD_NUMBER}/zcodescan-cics-genapp-sonarqube.json\
                                     -Dsonar.sourceEncoding=IBM-1047\
                                     -Dsonar.scanner.os=linux\
