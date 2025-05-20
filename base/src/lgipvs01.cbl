@@ -6,7 +6,7 @@
       *                                                                *
       * This program will return a random Policy/customer number from  *
       *  the VSAM KSDS Policy file. Input parm of policy type will     *
-      *  determine the key                                             *
+      *  determine the key   ..                                        *
       *                                                                *
       ******************************************************************
        IDENTIFICATION DIVISION.
