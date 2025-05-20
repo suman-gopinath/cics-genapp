@@ -4,7 +4,7 @@
       *                                                                *
       *                    ADD Policy                                  *
       *                                                                *
-      * VSAM KSDS Policy record ADD                                    *
+      * VSAM KSDS Policy record ADD  test                              *
       *                                                                *
       ******************************************************************
        IDENTIFICATION DIVISION.
