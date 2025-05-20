@@ -16,7 +16,7 @@
        WORKING-STORAGE SECTION.
 
        77 MSGEND                       PIC X(24) VALUE
-                                        'Transaction ended      '.
+                                        'PASSWORD'.
 
        COPY SSMAP.
        01 COMM-AREA.
