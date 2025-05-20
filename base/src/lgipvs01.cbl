@@ -158,6 +158,11 @@
              Move Write-Msg-Key   To COMMA-Data-Key
            End-If.
 
+           EXEC SQL 
+              SELECT POLICYNUMBER
+                FROM POLICY
+           END-EXEC
+
            EXEC CICS RETURN
            END-EXEC.
 
