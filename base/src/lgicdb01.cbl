@@ -5,7 +5,7 @@
       *                                                                *
       *                    Inquire Customer                            *
       *                                                                *
-      * Select customer details from DB2 table                         *
+      * Select customer details from DB2 table . test                  *
       *                                                                *
       ******************************************************************
        IDENTIFICATION DIVISION.
