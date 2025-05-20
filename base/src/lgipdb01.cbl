@@ -374,7 +374,11 @@
       *      risk of overwriting CICS storage beyond commarea.         *
       *================================================================*
        GET-ENDOW-DB2-INFO.
-
+           EXEC SQL
+              SELECT POLICYNUMBER
+                FROM POLICY
+           END-EXEC 
+           
            MOVE ' SELECT ENDOW ' TO EM-SQLREQ
            EXEC SQL
              SELECT  ISSUEDATE,
