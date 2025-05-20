@@ -32,7 +32,7 @@ rules:
   - id: zcodescan.cobol.rules.GotoParagraphRule
     severity: MEDIUM
   - id: zcodescan.cobol.rules.UnprotectedAuthCredentialRule
-    severity: HIGH rules
+    severity: HIGH 
   - id: zcodescan.cobol.rules.ProgramIdRule
     severity: INFO
   - id: zcodescan.cobol.rules.CallSyntaxRule
